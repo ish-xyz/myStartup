@@ -13,7 +13,7 @@ myStartup:
 
 ### myStartup Platform - Logical Layers
 
-![myStartup Platform Logical Diagram](myStartupPlatform.png)
+![myStartup Platform Logical Diagram](images/myStartupPlatform.png)
 
 
 ### Products used in the platform:
