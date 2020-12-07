@@ -48,4 +48,6 @@ Falco *
 Service Mesh?
 Istio?
 
-### Installation guide:
+### Requirements:
+
+Kubernetes Cluster 1.16+

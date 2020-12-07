@@ -1,0 +1,8 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: self-signing-issuer
+spec:
+  selfSigned: {}
+
+# https://cert-manager.io/docs/usage/ingress/

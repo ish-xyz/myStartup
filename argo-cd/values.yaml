@@ -112,7 +112,7 @@ controller:
 
   priorityClassName: ""
 
-  resources: {}
+  resources:
     limits:
       cpu: 1000m
       memory: 1024Mi
@@ -354,7 +354,7 @@ server:
 
   ## Additional command line arguments to pass to argocd-server
   ##
-  extraArgs: []
+  extraArgs: ["--insecure"]
   #  - --insecure
 
   ## Environment variables to pass to argocd-server
@@ -425,7 +425,7 @@ server:
   ## Certificate configuration
   certificate:
     enabled: false
-    domain: argocd.example.com
+    domain: argocd.mystartup.io
     issuer: {}
     additionalHosts: []
 
@@ -463,8 +463,11 @@ server:
     annotations: {}
 
   ingress:
-    enabled: false
-    annotations: {}
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: self-signing-issuer
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     labels: {}
 
     ## Argo Ingress.
@@ -472,21 +475,19 @@ server:
     ## Secrets must be manually created in the namespace
     ##
     hosts:
-      []
+      - argocd.mystartup.io
       # - argocd.example.com
     paths:
       - /
-    extraPaths:
-      []
+    extraPaths: []
       # - path: /*
       #   backend:
       #     serviceName: ssl-redirect
       #     servicePort: use-annotation
     tls:
-      []
-      # - secretName: argocd-example-tls
-      #   hosts:
-      #     - argocd.example.com
+      - secretName: argocd-mystartup-tls
+        hosts:
+        - argocd.mystartup.io
     https: false
   # dedicated ingess for gRPC as documented at
   # https://argoproj.github.io/argo-cd/operator-manual/ingress/
@@ -529,7 +530,7 @@ server:
   ## reference https://github.com/argoproj/argo-cd/blob/master/docs/operator-manual/argocd-cm.yaml
   config:
     # Argo CD's externally facing base URL (optional). Required when configuring SSO
-    url: https://argocd.example.com
+    url: https://argocd.mystartup.io
     # Argo CD instance label key
     application.instanceLabelKey: argocd.argoproj.io/instance
     # repositories: |
@@ -925,8 +926,7 @@ configs:
       # LDAP_PASSWORD: "mypassword"
 
   # Argo TLS Data.
-    argocdServerTlsConfig:
-      {}
+    argocdServerTlsConfig: {}
       # key:
       # crt: |
       #   -----BEGIN CERTIFICATE-----
