@@ -42,8 +42,8 @@ Security:
 OPA *
 Falco *
 
-Storage:
-Longhorn * 
+#Storage:
+#Longhorn * 
 
 Service Mesh?
 Istio?
