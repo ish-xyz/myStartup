@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test
+  namespace: argo-cd
+spec:
+  destination:
+    namespace: prometheus
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    helm:
+      valueFiles:
+      - custom-values.yaml
+    path: prometheus
+    repoURL: https://github.com/ish-xyz/myStartup
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
