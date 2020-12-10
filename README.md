@@ -11,7 +11,7 @@ myStartup:
 * want a fully secure, automated and reliable platform.
 
 
-### myStartup Platform - Logical Layers
+### myStartup Platform - Logical Layers (WIP)
 
 ![myStartup Platform Logical Diagram](images/myStartupPlatform.png)
 
