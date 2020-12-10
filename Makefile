@@ -17,6 +17,7 @@ install: add-helm-repos pre-install
 	kubectl apply -f cert-manager/cluster-issuer.yaml
 	helm upgrade --wait --install argo-cd	     argo/argo-cd          --namespace argo-cd       --version 2.10.0 --values ./argo-cd/custom-values.yaml
 	kubectl apply -f argo-cd/projects.yaml
+	helm upgrade --install apps argo-cd/apps 
 	
 
 uninstall:

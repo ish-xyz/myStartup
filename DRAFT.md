@@ -1,35 +1,47 @@
 ### Products used in the platform:
 
-Certificates management:
-cert-manager *
-
-Monitoring:
-Prometheus * 
+cert-manager tls with let's encrypt
 
 Tracing:
 Jaeger
-
-Centralized Logging?
-
-
-CI/CD:
-Tekton
-ArgoCD * 
-
-
-Load balancing:
-Nginx Ingress
 
 Security:
 OPA *
 Falco *
 
-#Storage:
-#Longhorn * 
+CI/CD:
+Tekton
+ArgoCD X
+
+Load balancing:
+Nginx Ingress X
+
+Storage:
+Provided by GCP X
+
+Certificates management:
+cert-manager X
+
+Monitoring:
+Prometheus X
+
+======
 
 Service Mesh?
-Istio?
+Centralized Logging?
 
 
 
-# https://app.cloudskew.com/
+https://app.cloudskew.com/
+App demo:
+https://github.com/GoogleCloudPlatform/microservices-demo/tree/v0.2.1
+https://github.com/GoogleCloudPlatform/microservices-demo/blob/v0.2.1/release/kubernetes-manifests.yaml
+
+
+To install and configure:
+
+cert-manager -> configure with let's encrypt (already automated and installed)
+jaeger
+gatekeeper
+falco-security
+application components
