@@ -30,6 +30,6 @@ Falco *
 Service Mesh?
 Istio?
 
-### Requirements:
 
-Kubernetes Cluster 1.16+
+
+# https://app.cloudskew.com/

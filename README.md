@@ -7,9 +7,12 @@ The porpuse of this repository is to provide a guideline to whoever is starting 
 myStartup:
 
 * is using github.com to host the products & platform code.
-* has Kubernetes as base infrastructure layer.
-* want a fully secure, automated and reliable platform.
+* wants Kubernetes/GKE as base infrastructure layer.
+* wants a fully secure, automated and reliable platform.
 
+### Requirements:
+
+Kubernetes Cluster 1.16+
 
 ### myStartup Platform - Logical Layers (WIP)
 

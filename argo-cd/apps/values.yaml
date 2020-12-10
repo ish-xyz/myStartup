@@ -1,1 +1,14 @@
-ar
+argocd:
+  namespace: argo-cd
+apps:
+- name: prometheus
+  namespace: prometheus
+  server: https://
+  project: infrastructure
+  path: prometheus
+  repository: https://github.com/ish-xyz/MyStartup.git
+  revision: HEAD
+  source:
+    helm:
+      valueFiles:
+      - custom-values.yaml

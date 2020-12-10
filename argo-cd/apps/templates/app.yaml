@@ -1,21 +1,21 @@
+{{ range .Values.apps }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test
-  namespace: argo-cd
-  namespace: {{ .Values.apps.}}
+  name: {{ .name }}
+  namespace: {{ $.Values.argocd.namespace }}
 spec:
   destination:
-    namespace: prometheus
-    server: https://kubernetes.default.svc
-  project: default
+    namespace: {{ .namespace }}
+    server: {{ .server }}
+  project: {{ .project }}
   source:
-    helm:
-      valueFiles:
-      - custom-values.yaml
-    path: prometheus
-    repoURL: https://github.com/ish-xyz/myStartup
-    targetRevision: HEAD
+{{ toYaml .source | indent 4 }}
+    path: {{ .path }}
+    repoURL: {{ .repository }}
+    targetRevision: {{ .revision }}
   syncPolicy:
     automated:
       prune: true
+---
+{{ end }}
