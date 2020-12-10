@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: test
   namespace: argo-cd
+  namespace: {{ .Values.apps.}}
 spec:
   destination:
     namespace: prometheus
