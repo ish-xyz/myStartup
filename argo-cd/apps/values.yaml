@@ -1,11 +1,32 @@
 argocd:
   namespace: argo-cd
+
+projects:
+- name: infrastructure
+
 apps:
 - name: prometheus
   namespace: prometheus
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "1"
   server: https://kubernetes.default.svc
   project: infrastructure
   path: prometheus
+  repository: https://github.com/ish-xyz/MyStartup.git
+  revision: HEAD
+  source:
+    helm:
+      valueFiles:
+      - custom-values.yaml
+- name: falco
+  namespace: kube-system
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "2"
+  server: https://kubernetes.default.svc
+  project: infrastructure
+  path: falcosecurity/falco
   repository: https://github.com/ish-xyz/MyStartup.git
   revision: HEAD
   source:

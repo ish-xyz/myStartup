@@ -1,7 +1,9 @@
+{{ range .Values.projects }}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: infrastructure
+  name: {{ .name }}
   namespace: argo-cd
 spec:
   clusterResourceWhitelist:
@@ -12,3 +14,4 @@ spec:
     server: '*'
   sourceRepos:
   - '*'
+{{ end }}
