@@ -1,8 +1,8 @@
 This repository simulates an imaginary startup's platform, fully based on Kubernetes and cloud-native applications.
 
-The porpuse of this repository is to provide a guideline to whoever is starting to build their own platform and wants to get started on Kubernete.
+The porpuse of this repository is to provide a guideline to whoever wants to build a platform based on Kubernetes.
 
-What is shown here is obviously not *the only* way to implement your platform. Albeit, I do think that as a general approach the methodologies and tools implemented here, are a good start.
+What is shown here is obviously not *the only* way to build your environments. Albeit, I do think that as a general approach the methodologies and tools implemented here, are a good start/best practice.
 
 ### Assumptions
 
