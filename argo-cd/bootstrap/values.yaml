@@ -26,7 +26,7 @@ apps:
   source:
     helm:
       valueFiles:
-      - values.yaml
+      - custom-values.yaml
 - name: falco
   namespace: kube-system
   server: https://kubernetes.default.svc

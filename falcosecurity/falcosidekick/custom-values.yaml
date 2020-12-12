@@ -1,0 +1,3 @@
+config:
+  alertmanager:
+    hostport: "https://prometheus-alertmanager.prometheus.svc"
