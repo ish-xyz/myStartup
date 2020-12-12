@@ -7,9 +7,6 @@ projects:
 apps:
 - name: prometheus
   namespace: prometheus
-  annotations:
-#    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/sync-wave: "1"
   server: https://kubernetes.default.svc
   project: infrastructure
   path: prometheus
@@ -19,11 +16,19 @@ apps:
     helm:
       valueFiles:
       - custom-values.yaml
+- name: falcosidekick
+  namespace: kube-system
+  server: https://kubernetes.default.svc
+  project: infrastructure
+  path: falcosecurity/falcosidekick
+  repository: https://github.com/ish-xyz/MyStartup.git
+  revision: HEAD
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
 - name: falco
   namespace: kube-system
-  annotations:
-#    argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/sync-wave: "2"
   server: https://kubernetes.default.svc
   project: infrastructure
   path: falcosecurity/falco
