@@ -1,6 +1,8 @@
-This repository simulates an imaginary startup platform, fully based on Kubernetes and cloud-native applications.
+This repository simulates an imaginary startup's platform, fully based on Kubernetes and cloud-native applications.
 
-The porpuse of this repository is to provide a guideline to whoever is starting to build their own platform and wants some suggestion.
+The porpuse of this repository is to provide a guideline to whoever is starting to build their own platform and wants to get started on Kubernete.
+
+What is shown here is obviously not *the only* way to implement your platform. Albeit, I do think that as a general approach the methodologies and tools implemented here, are a good start.
 
 ### Assumptions
 
@@ -12,9 +14,23 @@ myStartup:
 
 ### Requirements:
 
-Kubernetes Cluster 1.16+
+- Kubernetes Cluster 1.16+
+- Helm v3.0.0+
 
-### myStartup Platform - Logical Layers (WIP)
+
+### Platform diagram (WIP):
 
 ![myStartup Platform Logical Diagram](images/myStartupPlatform.png)
 
+
+### Installation (WIP):
+
+--
+
+### Concepts (WIP):
+
+Infrastructure:
+
+Development process:
+
+Observability stack:
