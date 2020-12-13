@@ -16,7 +16,7 @@ spec:
     path: {{ .path }}
     repoURL: {{ .repository }}
     targetRevision: {{ .revision }}
-#  syncPolicy:
-#    automated:
-#      prune: true
+  syncPolicy:
+    automated:
+      prune: true
 {{ end }}

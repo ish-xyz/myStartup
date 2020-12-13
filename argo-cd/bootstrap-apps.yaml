@@ -1,0 +1,23 @@
+# Source: applications/templates/app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argo-cd
+  annotations:
+    null
+spec:
+  destination:
+    namespace: argo-cd
+    server: https://kubernetes.default.svc
+  project: infrastructure
+  source:
+    helm:
+      valueFiles:
+      - values.yaml
+    path: argo-cd/bootstrap
+    repoURL: https://github.com/ish-xyz/MyStartup.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
