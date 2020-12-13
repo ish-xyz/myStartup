@@ -20,11 +20,12 @@ install: add-helm-repos pre-install
 	
 
 uninstall:
+	helm uninstall -n kube-system falcosidekick || true
+	helm uninstall -n kube-system falco || true
+	helm uninstall -n prometheus  prometheus || true
 	helm uninstall -n argo-cd argo-cd || true
 	helm uninstall -n nginx-ingress nginx-ingress || true
 	kubectl delete -f cert-manager/cluster-issuer.yaml || true
 	helm uninstall -n cert-manager cert-manager || true
 	kubectl delete -f cert-manager/crds.yaml || true
 	kubectl delete -f namespaces/namespaces.yaml || true
-
-#argocd app create helm-guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path helm-guestbook --dest-namespace default --dest-server https://kubernetes.default.svc 
