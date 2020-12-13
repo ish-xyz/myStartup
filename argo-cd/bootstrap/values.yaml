@@ -4,6 +4,9 @@ projects:
 apps:
 - name: prometheus
   namespace: prometheus
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "1"
   server: https://kubernetes.default.svc
   project: infrastructure
   path: prometheus
@@ -15,6 +18,9 @@ apps:
       - custom-values.yaml
 - name: falcosidekick
   namespace: kube-system
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "2"
   server: https://kubernetes.default.svc
   project: infrastructure
   path: falcosecurity/falcosidekick
@@ -26,6 +32,9 @@ apps:
       - custom-values.yaml
 - name: falco
   namespace: kube-system
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "3"
   server: https://kubernetes.default.svc
   project: infrastructure
   path: falcosecurity/falco
@@ -35,3 +44,4 @@ apps:
     helm:
       valueFiles:
       - custom-values.yaml
+
