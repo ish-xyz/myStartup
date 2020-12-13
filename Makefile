@@ -20,7 +20,7 @@ install: add-helm-repos pre-install
 	
 
 uninstall:
-	helm uninstall -n argo-cd argo-bootstrap || true
+	kubectl delete -f argo-cd/bootstrap.yaml || true
 	helm uninstall -n argo-cd argo-cd || true
 	helm uninstall -n nginx-ingress nginx-ingress || true
 	kubectl delete -f cert-manager/cluster-issuer.yaml || true
