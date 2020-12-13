@@ -28,7 +28,7 @@ spec:
       valueFiles:
       - values.yaml
     path: argo-cd/apps
-    repoURL: https://github.com/ish-xyz/MyStartup.git
+    repoURL: https://github.com/ish-xyz/myStartup.git
     targetRevision: HEAD
   syncPolicy:
     automated:
