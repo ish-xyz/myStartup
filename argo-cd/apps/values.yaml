@@ -1,11 +1,8 @@
-projects:
-- name: infrastructure
-
 apps:
 - name: prometheus
   namespace: prometheus
   annotations:
-    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "1"
   server: https://kubernetes.default.svc
   project: infrastructure
