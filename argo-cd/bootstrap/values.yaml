@@ -1,6 +1,3 @@
-argocd:
-  namespace: argo-cd
-
 projects:
 - name: infrastructure
 

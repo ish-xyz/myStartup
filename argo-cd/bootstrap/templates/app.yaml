@@ -4,7 +4,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .name }}
-  namespace: {{ $.Values.argocd.namespace }}
   annotations:
 {{ toYaml .annotations | indent 4 }}
 spec:
@@ -17,7 +16,7 @@ spec:
     path: {{ .path }}
     repoURL: {{ .repository }}
     targetRevision: {{ .revision }}
-  syncPolicy:
-    automated:
-      prune: true
+#  syncPolicy:
+#    automated:
+#      prune: true
 {{ end }}

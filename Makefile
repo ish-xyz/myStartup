@@ -16,13 +16,11 @@ install: add-helm-repos pre-install
 	helm upgrade --wait --install nginx-ingress nginx/nginx-ingress   --namespace nginx-ingress --version 0.7.1  --values ./nginx-ingress/custom-values.yaml
 	kubectl apply -f cert-manager/cluster-issuer.yaml
 	helm upgrade --wait --install argo-cd	     argo/argo-cd          --namespace argo-cd       --version 2.10.0 --values ./argo-cd/custom-values.yaml
-	helm upgrade --install argo-bootstrap argo-cd/bootstrap 
+	helm upgrade --namespace argo-cd --install argo-bootstrap argo-cd/bootstrap 
 	
 
 uninstall:
-	helm uninstall -n kube-system falcosidekick || true
-	helm uninstall -n kube-system falco || true
-	helm uninstall -n prometheus  prometheus || true
+	helm uninstall -n argo-cd argo-bootstrap || true
 	helm uninstall -n argo-cd argo-cd || true
 	helm uninstall -n nginx-ingress nginx-ingress || true
 	kubectl delete -f cert-manager/cluster-issuer.yaml || true
