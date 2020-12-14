@@ -1,4 +1,4 @@
 config:
   alertmanager:
-    hostport: "prometheus-alertmanager.prometheus.svc"
+    hostport: "http://prometheus-alertmanager.prometheus.svc"
     minimumpriority: "error"
