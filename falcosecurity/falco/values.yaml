@@ -155,8 +155,7 @@ falco:
   # with a burst of 10 messages.
   syscallEventDrops:
     actions:
-      - log
-      - alert
+      - ignore
     rate: .03333
     maxBurst: 10
 
