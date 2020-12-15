@@ -6,11 +6,10 @@ https://github.com/GoogleCloudPlatform/microservices-demo/blob/v0.2.1/release/ku
 
 
 TODO:
-
+alertmanager -> configure alert grouping
 cert-manager -> configure with let's encrypt (already automated and installed)
-falco-security (WIP)
 gatekeeper
 jaeger
-annotations to order the syncs
+CI with github actions
 Service Mesh?
 Centralized Logging?
