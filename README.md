@@ -1,4 +1,4 @@
-#Work in progress
+# Work in progress
 
 This repository simulates an imaginary startup's platform, fully based on Kubernetes and cloud-native applications.
 
