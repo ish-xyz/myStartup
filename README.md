@@ -1,3 +1,5 @@
+#Work in progress
+
 This repository simulates an imaginary startup's platform, fully based on Kubernetes and cloud-native applications.
 
 The porpuse of this repository is to provide a guideline to whoever wants to build a platform based on Kubernetes.
