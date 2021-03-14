@@ -1,11 +1,11 @@
 apps:
 - name: prometheus
-  namespace: prometheus
+  namespace: observability
   annotations:
     argocd.argoproj.io/sync-wave: "1"
   server: https://kubernetes.default.svc
   project: infrastructure
-  path: obserability
+  path: prometheus
   repository: https://github.com/ish-xyz/MyStartup.git
   revision: HEAD
   source:

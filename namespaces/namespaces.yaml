@@ -13,7 +13,7 @@ spec: {}
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: obserability
+  name: observability
 spec: {}
 ---
 apiVersion: v1
