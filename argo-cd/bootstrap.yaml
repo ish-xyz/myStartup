@@ -33,8 +33,6 @@ kind: Application
 metadata:
   name: apps
   namespace: argo-cd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     namespace: argo-cd
