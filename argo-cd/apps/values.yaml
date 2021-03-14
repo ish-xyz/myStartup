@@ -5,7 +5,7 @@ apps:
     argocd.argoproj.io/sync-wave: "1"
   server: https://kubernetes.default.svc
   project: infrastructure
-  path: prometheus
+  path: obserability
   repository: https://github.com/ish-xyz/MyStartup.git
   revision: HEAD
   source:
@@ -38,4 +38,4 @@ apps:
     helm:
       valueFiles:
       - custom-values.yaml
-
+#
