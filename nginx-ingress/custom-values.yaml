@@ -134,11 +134,11 @@ controller:
 
   ## For kubernetes versions >= 1.18 this flag will be IGNORED.
   ## Ignore Ingress resources without the "kubernetes.io/ingress.class" annotation
-  useIngressClassOnly: false
+  useIngressClassOnly: true
 
   ## Only for Kubernetes >= 1.18
   ## New Ingresses without an ingressClassName field specified will be assigned the class specified in `controller.ingressClass`.
-  setAsDefaultIngress: false
+  setAsDefaultIngress: true
 
   ## Namespace to watch for Ingress resources. By default the Ingress controller watches all namespaces.
   watchNamespace: ""
