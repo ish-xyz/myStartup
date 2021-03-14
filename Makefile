@@ -1,5 +1,8 @@
 .PHONY: add-helm-repos, pre-install, install, uninstall
 
+check-tools:
+	true #kubectl,helmkub
+
 add-helm-repos:
 	helm repo add jetstack https://charts.jetstack.io
 	helm repo add nginx https://helm.nginx.com/stable
@@ -17,7 +20,6 @@ install: add-helm-repos pre-install
 	kubectl apply -f cert-manager/cluster-issuer.yaml
 	helm upgrade --wait --install argo-cd	     argo/argo-cd          --namespace argo-cd       --version 2.10.0 --values ./argo-cd/custom-values.yaml
 	kubectl apply -f argo-cd/bootstrap.yaml
-	
 
 uninstall:
 	kubectl delete -f argo-cd/bootstrap.yaml || true
