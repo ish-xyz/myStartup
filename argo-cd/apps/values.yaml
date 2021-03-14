@@ -38,4 +38,3 @@ apps:
     helm:
       valueFiles:
       - custom-values.yaml
-#

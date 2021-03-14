@@ -22,13 +22,11 @@ install: add-helm-repos pre-install
 	kubectl apply -f argo-cd/bootstrap.yaml
 
 uninstall:
-	kubectl delete -n argo-cd app falco --cascade=true || true
-	kubectl delete -n argo-cd app falcosidekick --cascade=true || true
-	kubectl delete -n argo-cd app prometheus --cascade=true || true
-	kubectl delete -f argo-cd/bootstrap.yaml || true
-	helm uninstall -n argo-cd argo-cd || true
-	helm uninstall -n nginx-ingress nginx-ingress || true
-	kubectl delete -f cert-manager/cluster-issuer.yaml || true
-	helm uninstall -n cert-manager cert-manager || true
-	kubectl delete -f cert-manager/crds.yaml || true
-	kubectl delete -f namespaces/namespaces.yaml || true
+	kubectl delete app -n argo-cd --wait=true apps || true
+	kubectl delete --wait=true -f argo-cd/bootstrap.yaml || true
+	helm uninstall --wait -n argo-cd argo-cd || true
+	helm uninstall --wait -n nginx-ingress nginx-ingress || true
+	kubectl delete --wait=true -f cert-manager/cluster-issuer.yaml || true
+	helm uninstall --wait -n cert-manager cert-manager || true
+	kubectl delete --wait=true -f cert-manager/crds.yaml || true
+	kubectl delete --wait=true -f namespaces/namespaces.yaml || true
